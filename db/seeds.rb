@@ -6,6 +6,10 @@ require_relative('../models/origin')
 
 require('pry-byebug')
 
+Flowers.delete_all()
+Plants.delete_all()
+Origin.delete_all()
+
 origin1 = Origin.new({'origin_name' => 'South America'})
 origin1.save()
 
@@ -90,9 +94,6 @@ plant6 = Plants.new(
   'origin_id' => origin2.id,
   'quantity' => 3})
 plant6.save()
-
-
-
 
 binding.pry
 nil
