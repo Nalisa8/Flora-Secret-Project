@@ -14,6 +14,8 @@ CREATE TABLE flowers (
   flower_name VARCHAR(255),
   quantity INT8,
   origin_id int4 REFERENCES origin(id)
+  buy_price INT8
+  sell_price INT8
 
 );
 
@@ -22,5 +24,7 @@ CREATE TABLE plants (
   plant_name VARCHAR(255),
   quantity INT8,
  origin_id int4 REFERENCES origin(id)
+ buy_price INT8
+ sell_price INT8
 
 );

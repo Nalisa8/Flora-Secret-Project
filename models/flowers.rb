@@ -1,15 +1,16 @@
 require_relative('../db/sql_runner')
 
 class Flowers
-  attr_reader :id, :origin_id
-  attr_accessor :flower_name, :quantity
+  attr_reader :id, :origin_id, :buy_price
+  attr_accessor :flower_name, :quantity, :sell_price
 
   def initialize(options)
     @id = options['id'].to_i
     @flower_name = options['flower_name']
     @origin_id = options['origin_id']
     @quantity = options['quantity'].to_i
-    @buy_price
+    @buy_price = options['buy_price'].to_i
+    @sell_price = options['sell_price'].to_i
 
   end
 
@@ -47,4 +48,13 @@ def self.delete_all() #DELETE
   sql = "DELETE FROM flowers"
   SqlRunner.run(sql)
 end
+
+case flowers_quantity_level
+when quantity < 30 && quantity > 19
+  puts "high"
+when quantity < 20 && quantity > 9
+  puts "high"
+else
+  puts "low"
+
 end # END CLASS FLOWERS
