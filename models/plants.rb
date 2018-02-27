@@ -41,19 +41,27 @@ class Plants
       return result
     end
 
-    def udpate() # UPDATE name and quantity
-      sql = "UPDATE plants SET plant_name = $1 WHERE id = $2"
-      values = [@plant_name, @id]
-      SqlRunner.run(sql, values)
+    def self.all()
+    sql = "SELECT * FROM plants"
+    results = SqlRunner.run( sql )
+    return results.map { |hash| Plants.new( hash ) }
+  end
 
+  def update() #UPDATE name and quantity
+    sql = "UPDATE plants SET (plants_name, quantity) = ($1, $2) WHERE id = $3"
+    values = [@plants_name, @quantity, @id]
+    SqlRunner.run(sql,values)
+  end
+
+
+  def self.find( id )
+      sql = "SELECT * FROM plants
+      WHERE id = $1"
+      values = [id]
+      results = SqlRunner.run( sql, values )
+      return Plants.new( results.first )
     end
 
-    def udpate() # UPDATE quantity
-      sql = "UPDATE plants SET quantity = $1 WHERE id = $2"
-      values = [@plant_name, @id]
-      SqlRunner.run(sql, values)
-
-    end
 
     def self.delete_all() # DELETE
       sql = "DELETE FROM plants"

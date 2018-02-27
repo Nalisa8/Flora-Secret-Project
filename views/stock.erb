@@ -1,0 +1,16 @@
+<h1>The Stock</h1>
+<table>
+  <tr>
+    <th>Name:</th>
+    <th>Origin:</th>
+    <th>Quantity:</th>
+
+  </tr>
+    <% for flower in @flowers %>
+    <tr>
+      <td> <%= flower.flower_name %></a> </td>
+        <td> <%= Origin.find(flowers.origin_id).origin_name%></a> </td>
+      <td> <%= flower.quantity %></a> </td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,18 @@
+<!-- FLOWER INDEX -->
+
+<h1>Flowers</h1>
+<table>
+  <tr>
+    <th>Name:</th>
+    <th>Origin:</th>
+    <th>Quantity:</th>
+
+  </tr>
+    <% for flowers in @flowers %>
+    <tr>
+      <td> <%= flowers.flower_name %></a> </td>
+        <td> <%= Origin.find(flowers.origin_id).origin_name%></a> </td>
+      <td> <%= flowers.quantity %></a> </td>
+    </tr>
+  <% end %>
+</table>

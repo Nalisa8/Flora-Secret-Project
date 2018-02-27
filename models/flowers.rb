@@ -41,10 +41,24 @@ class Flowers
     return result
   end
 
+  def self.all()
+  sql = "SELECT * FROM flowers"
+  results = SqlRunner.run( sql )
+  return results.map { |hash| Flowers.new( hash ) }
+end
+
   def update() #UPDATE name and quantity
     sql = "UPDATE flowers SET (flower_name, quantity) = ($1, $2) WHERE id = $3"
     values = [@flower_name, @quantity, @id]
     SqlRunner.run(sql,values)
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM flowers
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Flowers.new( results.first )
   end
 
 def self.delete_all() #DELETE

@@ -30,6 +30,21 @@ attr_accessor :origin_name
     return result
   end
 
+  def self.all()
+  sql = "SELECT * FROM origin"
+  results = SqlRunner.run( sql )
+  return results.map { |hash| Origin.new( hash ) }
+end
+
+
+def self.find( id )
+    sql = "SELECT * FROM Origin
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Origin.new( results.first )
+  end
+  
   def update() #UPDATE
     sql = "UPDATE origin SET origin_name = $1 WHERE id = $2"
     values = [@origin_name, @id]
