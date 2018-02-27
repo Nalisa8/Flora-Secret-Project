@@ -41,4 +41,4 @@ def  self.delete_all() # DELETE
   SqlRunner.run(sql)
 
 end
-end # END CLASS ORGIN
+end # END CLASS ORIGIN

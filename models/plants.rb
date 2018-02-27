@@ -20,13 +20,15 @@ class Plants
     (
       plant_name,
       origin_id,
-      quantity
+      quantity,
+      buy_price,
+      sell_price
       ) VALUES
       (
-        $1, $2, $3
+        $1, $2, $3, $4, $5
       )
       RETURNING id"
-      values = [@plant_name, @origin_id,@quantity]
+      values = [@plant_name, @origin_id, @quantity,@buy_price, @sell_price]
       @id = SqlRunner.run( sql, values )[0]["id"].to_i()
     end
 
@@ -39,7 +41,7 @@ class Plants
       return result
     end
 
-    def udpate() # UPDATE name
+    def udpate() # UPDATE name and quantity
       sql = "UPDATE plants SET plant_name = $1 WHERE id = $2"
       values = [@plant_name, @id]
       SqlRunner.run(sql, values)
@@ -58,14 +60,21 @@ class Plants
       SqlRunner.run(sql)
     end
 
-    case plants_quantity_level
-    when quantity < 30 && quantity > 19
-      puts "high"
-    when quantity < 20 && quantity > 9
-      puts "high"
-    else
-      puts "low"
+    def stock_check() # QUANTITY LEVEL
+      case
+      when @quantity > 19
+        puts "high"
+      when @quantity > 9
+        puts "medium"
+      else
+        puts "low"
       end
+    end
 
-      
+    def mark_up
+      markup = @sell_price - @buy_price
+      return markup
+    end
+
+
     end # END CLASS PLANTS

@@ -28,7 +28,7 @@ flower1 = Flowers.new(
    'quantity' => 30,
    'buy_price' => 3,
     'sell_price' => 6 })
-flower1.save();
+flower1.save()
 
 flower2 = Flowers.new(
   {'flower_name' => 'Begonia',

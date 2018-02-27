@@ -14,18 +14,21 @@ class Flowers
 
   end
 
-  def save()#CREATE
+  def save() #CREATE
     sql = "INSERT INTO flowers
     (
     flower_name,
     origin_id,
-    quantity
+    quantity,
+    buy_price,
+    sell_price
     ) VALUES
     (
-    $1, $2, $3
+    $1, $2, $3, $4, $5
     )
     RETURNING id"
-    values = [@flower_name, @origin_id, @quantity]
+
+    values = [@flower_name, @origin_id, @quantity, @buy_price, @sell_price]
     @id = SqlRunner.run( sql, values )[0]["id"].to_i()
   end
 
@@ -38,7 +41,7 @@ class Flowers
     return result
   end
 
-  def update() #UPDATE name
+  def update() #UPDATE name and quantity
     sql = "UPDATE flowers SET (flower_name, quantity) = ($1, $2) WHERE id = $3"
     values = [@flower_name, @quantity, @id]
     SqlRunner.run(sql,values)
@@ -49,12 +52,20 @@ def self.delete_all() #DELETE
   SqlRunner.run(sql)
 end
 
-case flowers_quantity_level
-when quantity < 30 && quantity > 19
+def stock_check #QUANTITY LEVEL
+case
+when quantity > 19
   puts "high"
-when quantity < 20 && quantity > 9
-  puts "high"
+when quantity > 9
+  puts "medium"
 else
   puts "low"
+end
+end
+
+def mark_up
+  markup = @sell_price - @buy_price
+  return markup
+end
 
 end # END CLASS FLOWERS
