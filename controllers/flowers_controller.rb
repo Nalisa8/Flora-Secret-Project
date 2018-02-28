@@ -8,4 +8,10 @@ get '/flowers' do
   erb (:"flowers/index")
 end
 
+
+
+get '/flowers/new' do # new
+  erb( :new )
+end
+
 # class Item

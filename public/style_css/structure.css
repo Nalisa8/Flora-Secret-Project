@@ -1,0 +1,27 @@
+body {
+  background-color:#1d0945;
+  text-align: center;
+  font-family: 'Robot';
+  color: #e9e7ee;
+  background-size: 100% 300%;
+  background-repeat: no-repeat;
+}
+
+nav {
+  list-style-type: none;
+}
+
+li {
+  color: white;
+  display: inline;
+  padding: 10px;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+img {
+  position: relative;
+}

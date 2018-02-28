@@ -1,16 +1,19 @@
 <h1>The Stock</h1>
-<table>
-  <tr>
-    <th>Name:</th>
-    <th>Origin:</th>
-    <th>Quantity:</th>
-
-  </tr>
-    <% for flower in @flowers %>
-    <tr>
-      <td> <%= flower.flower_name %></a> </td>
-        <td> <%= Origin.find(flowers.origin_id).origin_name%></a> </td>
-      <td> <%= flower.quantity %></a> </td>
-    </tr>
+<% @flowers.each do |flower| %>
+  <p>Name: <%= flower.flower_name() %></p>
+    <p>Origin: <%= Origin.find(flower.origin_id).origin_name%></p>
+  <p>Quantity: <%= flower.quantity%></p>
+  <p>Buy:<a href="/flowers/<%= flower.id %>"><%=flower.buy_price%></a></p>
+  <p>Sell:<a href="/flowers/<%= flower.id %>"><%=flower.sell_price%></a></p>
+  <p>Mark-up: <%= flower.mark_up()%></p>
+  <hr/>
   <% end %>
-</table>
+  <% @plants.each do |plant| %>
+    <p>Name: <%= plant.plant_name() %></p>
+      <p>Origin: <%= Origin.find(plant.origin_id).origin_name%></p>
+    <p>Quantity: <%= plant.quantity%></p>
+    <p>Buy:<a href="/plants/<%= plant.id %>"><%=plant.buy_price%></a></p>
+    <p>Sell:<a href="/plants/<%= plant.id %>"><%=plant.sell_price%></a></p>
+    <p>Mark-up: <%= plant.mark_up()%></p>
+    <hr/>
+<% end %>
