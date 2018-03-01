@@ -1,27 +1,76 @@
 body {
-  background-color:#1d0945;
-  text-align: center;
-  font-family: 'Robot';
-  color: #e9e7ee;
-  background-size: 100% 300%;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-color: #e0e3d9;
+  text-align: center;
+  font-family: "Segoe Script", cursive;
+  font-size: 25px;
+  color: #2e2c78;
 }
 
 nav {
   list-style-type: none;
 }
 
+div {
+ position: relative; top: 0px; left: 400px;
+  float:left; margin: 1px; height: 60px;
+  width: 120px; border: 1px solid black; text-align:center;
+}
+ span{
+   display: inline-block;
+   vertical-align: middle;
+   line-height: normal;
+ }
+
+div#box-1 {
+
+  background-color: #b8c793;
+border-top-left-radius: 50px;
+border-bottom-right-radius: 50px;
+font-size: 16px;
+text-align: center;
+height: 40px;
+}
+
+
+div#box-2 {
+  background-color: #b8c793;
+border-top-left-radius: 50px;
+border-bottom-right-radius: 50px;
+font-size: 16px;
+text-align: center;
+height: 40px;
+}
+
+
+div#box-3 {
+  background-color: #b8c793;
+border-top-left-radius: 50px;
+border-bottom-right-radius: 50px;
+font-size: 16px;
+text-align: center;
+height: 40px;
+}
+
+
+div#box-4 {
+  background-color: #b8c793;
+border-top-left-radius: 50px;
+border-bottom-right-radius: 50px;
+font-size: 16px;
+text-align: center;
+height: 40px;
+}
+
+
 li {
-  color: white;
+  color: black;
   display: inline;
   padding: 10px;
   text-align: center;
 }
 
 a {
-  color: white;
-}
-
-img {
-  position: relative;
+  color: black;
 }

@@ -1,13 +1,14 @@
 require_relative('../db/sql_runner')
 
 class Flowers
-  attr_reader :id, :origin_id, :buy_price
+  attr_reader :id, :origin_id, :buy_price, :type
   attr_accessor :flower_name, :quantity, :sell_price
 
   def initialize(options)
     @id = options['id'].to_i
     @flower_name = options['flower_name']
-    @origin_id = options['origin_id']
+    @type = options['type']
+    @origin_id = options['origin_id'].to_i
     @quantity = options['quantity'].to_i
     @buy_price = options['buy_price'].to_i
     @sell_price = options['sell_price'].to_i
@@ -18,17 +19,18 @@ class Flowers
     sql = "INSERT INTO flowers
     (
     flower_name,
+    type,
     origin_id,
     quantity,
     buy_price,
     sell_price
     ) VALUES
     (
-    $1, $2, $3, $4, $5
+    $1, $2, $3, $4, $5, $6,
     )
     RETURNING id"
 
-    values = [@flower_name, @origin_id, @quantity, @buy_price, @sell_price]
+    values = [@flower_name, @type, @origin_id, @quantity, @buy_price, @sell_price]
     @id = SqlRunner.run( sql, values )[0]["id"].to_i()
   end
 
@@ -60,6 +62,13 @@ end
     results = SqlRunner.run( sql, values )
     return Flowers.new( results.first )
   end
+
+  def delete()
+  sql = "DELETE FROM flowers
+  WHERE id = $1"
+  values = [@id]
+  SqlRunner.run( sql, values )
+end
 
 def self.delete_all() #DELETE
   sql = "DELETE FROM flowers"

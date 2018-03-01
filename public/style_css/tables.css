@@ -1,0 +1,122 @@
+
+table {
+  background-color: #ffffff;
+  border: 2px solid black;
+
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+caption{
+  font-family: "Arial Black", cursive;
+  color: #000000;
+}
+
+td#name {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+}
+
+td#type {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+td#origin {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+td#quantity {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+td#edit {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+td#buy {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+td#sell {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+td#mark-up {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+td#delete {
+  background-color: #e9ea87;
+  font-family: "Arial";
+  font-style: italic;
+  font-weight: bold;
+
+}
+
+
+tr#style {
+  font-family: "Arial", cursive;
+  color: #000000;
+  font-size: 16px;
+
+}
+
+tr#style-1 {
+  background-color: #ffffff;
+  font-family: "Arial", cursive;
+  color: #000000;
+  font-size: 16px;
+
+}
+
+
+td {
+  text-align: center;
+border: 2px solid black;
+background-color: #ffffff;
+  padding: 10px 20px 0px 0px;
+}
+
+td#fname {
+  font-family: "Arial", cursive;
+font-weight: bold;
+text-align: justify;
+}

@@ -2,18 +2,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style_css/structure.css">
+  <link rel="stylesheet" type="text/css" href="/style_css/structure.css">
+  <link rel="stylesheet" type="text/css" href="/style_css/tables.css">
   <title>Flora's Secret</title>
 </head>
-<body>
+<body  background="a9a172c299cf7c60a7d85d7e27cca62a.png">
+
+  <header>
 <nav>
   <ul>
-    <li><a href="/">Home</a> </li>
-    <li><a href="/stock">Stock</a></li>
-    <li><a href="/plants">Plants</a></li>
-    <li><a href="/flowers">Flowers</a></li>
+    <li><div id="box-1"> <span> <a href="/">Home</a></span></div></li>
+    <li><div id="box-2"> <span><a href="/stock">Stock</a></span> </div></li>
+    <li><div id="box-3"> <span><a href="/plants">Plants</a></span> </div></li>
+    <li><div id="box-4"> <span><a href="/flowers">Flowers</a></span> </div></li>
+
   </ul>
 </nav>
+
+<h1>Flora's Secret</h1>
+<img src="hibiscus-146518_960_720.png" width=60 height=60>
+<p>-The gardening passion-</p>
+</header>
   <%= yield %>
+  <footer>
+<ul>
+  <li><img src="fb944c570182b6e89eb21f41f8c4522b-instagram-colorful-silhouette-by-vexels.png" width=35 height=35></li>
+  <li><img src="pinterest-logo-p-png-0.png" width=32 height=32></li>
+  <li><img src="social-facebook-button-blue-icon.png" width=32 height= 32></li>
+</ul>
+  </footer>
 </body>
 </html>

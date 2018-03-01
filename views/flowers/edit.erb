@@ -1,0 +1,32 @@
+<!-- FLOWER EDIT -->
+<form method="post" action="/flowers/<%= @flowers.id%>">
+
+<label for="name">Name</label>
+<input
+type="text"
+name="flower_name"
+id="name"
+value="<%= @flowers.flower_name %>"
+ />
+
+<label for "origin">Origin</label>
+<select name="origin_id">
+  <% for origin in @origins %>
+    <% if origin.id == @flowers.origin_id %>
+      <option selected="selected" value="<%=origin.id%>"><%=origin.origin_name%></option>
+    <% else %>
+      <option value="<%=origin.id%>"><%=origin.origin_name%></option>
+    <% end %>
+  <% end %>
+</select>
+
+<label for="quantity">Quantity</label>
+<input
+type="text"
+name="quantity"
+id="flowers"
+value="<%= @flowers.quantity%>"/>
+
+<label for="status-flower"> Edit</label>
+<input type='submit' value=" Edit">
+</form>

@@ -2,12 +2,13 @@ require_relative('../db/sql_runner')
 
 class Plants
 
-  attr_reader :id, :origin_id, :buy_price
+  attr_reader :id, :origin_id, :buy_price, :type
   attr_accessor :plant_name, :quantity, :sell_price
 
   def initialize(options)
     @id = options['id'].to_i
     @plant_name = options['plant_name']
+    @type = options['type']
     @origin_id = options['origin_id']
     @quantity = options['quantity'].to_i
     @buy_price = options['buy_price'].to_i
@@ -19,21 +20,22 @@ class Plants
     sql = "INSERT INTO plants
     (
       plant_name,
+      type,
       origin_id,
       quantity,
       buy_price,
       sell_price
       ) VALUES
       (
-        $1, $2, $3, $4, $5
+        $1, $2, $3, $4, $5, $6
       )
       RETURNING id"
-      values = [@plant_name, @origin_id, @quantity,@buy_price, @sell_price]
+      values = [@plant_name, @type, @origin_id, @quantity,@buy_price, @sell_price]
       @id = SqlRunner.run( sql, values )[0]["id"].to_i()
     end
 
     def origin() # READ
-      "SELECT * FROM origin
+    sql =  "SELECT * FROM origin
       WHERE id = $1"
       values = [@origin_id]
       origin = SqlRunner.run(sql, values)

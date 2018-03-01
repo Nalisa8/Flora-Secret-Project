@@ -10,10 +10,6 @@ require_relative('controllers/origin_controller')
 get '/' do
     erb(:index)
 end
-#
-# get '/stock' do
-#     erb(:stock)
-# end
 
 get '/stock' do
 @flowers = Flowers.all()
