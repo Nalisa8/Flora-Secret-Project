@@ -50,7 +50,7 @@ class Plants
   end
 
   def update() #UPDATE name and quantity
-    sql = "UPDATE plants SET (plants_name, quantity) = ($1, $2) WHERE id = $3"
+    sql = "UPDATE plants SET (plant_name, quantity) = ($1, $2) WHERE id = $3"
     values = [@plants_name, @quantity, @id]
     SqlRunner.run(sql,values)
   end
@@ -64,6 +64,12 @@ class Plants
       return Plants.new( results.first )
     end
 
+    def delete()
+    sql = "DELETE FROM plants
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run( sql, values )
+  end
 
     def self.delete_all() # DELETE
       sql = "DELETE FROM plants"

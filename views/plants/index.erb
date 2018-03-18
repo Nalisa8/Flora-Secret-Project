@@ -1,18 +1,22 @@
 <!-- PLANTS INDEX -->
 <table class="center">
     <caption>Plants</caption>
+
   <tr id="style">
     <td id="name">Name:</td>
     <td id="origin">Origin:</td>
     <td id="quantity">Quantity:</td>
     <td id="edit">Edit:</td>
-  </tr>
+
     <% for plants in @plants %>
     <tr id="style-1">
-      <td id="fname"><%= plants.plant_name %></a></td>
-        <td> <%= Origin.find(plants.origin_id).origin_name%></a> </td>
+      <td id="fname"><%= plants.plant_name %></td>
+        <td> <%= Origin.find(plants.origin_id).origin_name%></td>
+        <!-- <td> <%= plants.origin_id%></td> -->
       <td><%= plants.quantity %></a> </td>
         <td> <a href="/plants/<%=plants.id%>/edit">change</a> </td>
     </tr>
   <% end %>
 </table>
+
+<p id="new"><a href="/plants/new">Add New Plant:</a></p>

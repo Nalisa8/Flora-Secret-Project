@@ -17,26 +17,39 @@
 <tr id="style-1">
   <td id="fname"><%= flower.flower_name() %></td>
   <td><%= flower.type%></td>
-  <td><%= Origin.find(flower.origin_id).origin_name%></td>
+  <td> <%= Origin.find(flower.origin_id).origin_name%></td>
+  <!-- <td><%= flower.origin_id%></td> -->
   <td><%= flower.quantity%></td>
   <td><a href="/flowers/<%= flower.id %>"><%=flower.buy_price%></a></td>
   <td><a href="/flowers/<%= flower.id %>"><%=flower.sell_price%></a></td>
   <td> <%= flower.mark_up()%></td>
   <td><a href="/flowers/<%=flower.id%>/edit">change</a></td>
-  <td><a href="/flowers/<%=flower.id%>">go</a></td>
+  <td>
+    <form class="" action="/flowers/<%=flower.id%>/delete" method="post">
+      <input type="submit" name="" value="delete">
+    </form>
+  </td>
+
 </tr>
     <% end %>
+
     <% @plants.each do |plant| %>
      <tr id="style-1">
-      <td id="fname"> <%= plant.plant_name() %></td>
+      <td id="fname"><%= plant.plant_name() %></td>
       <td><%= plant.type%></td>
-      <td><%= Origin.find(plant.origin_id).origin_name%></td>
+      <td> <%= Origin.find(plant.origin_id).origin_name%></td>
+      <!-- <td><%= plant.origin_id%></td> -->
       <td><%= plant.quantity%></td>
       <td><a href="/plants/<%= plant.id %>"><%=plant.buy_price%></a></td>
       <td><a href="/plants/<%= plant.id %>"><%=plant.sell_price%></a></td>
       <td><%= plant.mark_up()%></td>
-      <td><a href="/plants/<%=plant.id%>">change</a> </td>
-      <td><a href="/plants/<%=plant.id%>">go</a></td>
+      <td><a href="/plants/<%=plant.id%>/edit">change</a> </td>
+
+      <td>
+        <form class="" action="/plants/<%=plant.id%>/delete" method="post">
+          <input type="submit" name="" value="delete">
+        </form>
+      </td>
     </tr>
   <% end %>
 </table>

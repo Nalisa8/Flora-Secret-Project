@@ -1,14 +1,15 @@
 <!-- PLANTS EDIT -->
 <form method="post" action="/plants/<%= @plants.id%>">
 
-<label for="name">Name</label>
+<label for="name"> <span class="serif"> Name:</span></label>
 <input
 type="text"
 name="plant_name"
 id="name"
 value="<%= @plants.plant_name %>"
  />
-<label for "origin">Origin</label>
+
+ <label for "origin"><span class="serif">Origin:</span></label>
 <select name="origin_id">
   <% for origin in @origins %>
     <% if origin.id == @plants.origin_id %>
@@ -19,13 +20,11 @@ value="<%= @plants.plant_name %>"
   <% end %>
 </select>
 
-<label for="quantity">Quantity</label>
+<label for="quantity"><span class="serif">Quantity:</span></label>
 <input
 type="text"
 name="quantity"
 id="plants"
 value="<%= @plants.quantity%>" />
-
-<label for="status-plants"> Edit</label>
 <input type='submit' value=" Edit">
 </form>

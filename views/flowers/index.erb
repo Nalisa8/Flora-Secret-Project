@@ -1,6 +1,8 @@
 <!-- FLOWER INDEX -->
+
 <table class="center">
   <caption>Flowers</caption>
+
   <tr id="style">
     <td id="name">Name:</td>
     <td id="origin">Origin:</td>
@@ -9,11 +11,12 @@
 
     <% for flowers in @flowers %>
     <tr id="style-1">
-      <td id="fname"> <%= flowers.flower_name %></a> </td>
-        <td> <%= Origin.find(flowers.origin_id).origin_name%></a> </td>
-      <td> <%= flowers.quantity %></a> </td>
+      <td id="fname"><%= flowers.flower_name %></td>
+        <td> <%= Origin.find(flowers.origin_id).origin_name%></td>
+      <td> <%= flowers.quantity %> </td>
     <td> <a href="/flowers/<%=flowers.id%>/edit">change</a> </td>
     </tr>
-
-  <% end %>
+<% end %>
 </table>
+
+<p id="new"><a href="/flowers/new">Add New Flower:</a></p>

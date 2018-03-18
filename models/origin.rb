@@ -44,7 +44,7 @@ def self.find( id )
     results = SqlRunner.run( sql, values )
     return Origin.new( results.first )
   end
-  
+
   def update() #UPDATE
     sql = "UPDATE origin SET origin_name = $1 WHERE id = $2"
     values = [@origin_name, @id]

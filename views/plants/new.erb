@@ -1,0 +1,23 @@
+<form method="post" action="/plants">
+<label for="name"> <span class="serif"> Add Name:</span></label>
+<input
+type="text"
+name="plant_name"
+id="name"
+ />
+
+ <label for "origin-type"><span class="serif"> Add Origin:</span></label>
+<select name="origin_id">
+  <% for origin in @origins %>
+      <option value="<%=origin.id%>"><%=origin.origin_name%></option>
+  <% end %>
+</select>
+
+ <label for="quantity-field"><span class="serif"> Add Quantity:</span></label>
+ <input
+ type="text"
+ name="quantity"
+  id="quantity-field"
+  />
+  <input type='submit' value=" Submit"/>
+  </form>

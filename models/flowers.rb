@@ -26,12 +26,12 @@ class Flowers
     sell_price
     ) VALUES
     (
-    $1, $2, $3, $4, $5, $6,
+    $1, $2, $3, $4, $5, $6
     )
     RETURNING id"
 
     values = [@flower_name, @type, @origin_id, @quantity, @buy_price, @sell_price]
-    @id = SqlRunner.run( sql, values )[0]["id"].to_i()
+    @id = SqlRunner.run(sql, values )[0]["id"].to_i()
   end
 
   def  origin()  #READ
