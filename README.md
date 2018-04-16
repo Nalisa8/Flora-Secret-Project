@@ -4,7 +4,7 @@
 
 The owner of a Flower Shop wants an app which will help to keep on top of the store inventory. This is not an app that customers will see, but will be used to check stock levels and see what needs to be ordered soon.
 
-You should be able to add stock, which would have an Flowers and Plant as well as the quantity available.
+You should be able to add stock, which would have an Flowers and Plants as well as the quantity available.
 
 ### MVP:
 ```
